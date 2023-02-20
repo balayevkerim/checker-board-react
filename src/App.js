@@ -1,25 +1,54 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Row from "./components/Row/row.component";
 
 function App() {
+  const data = [
+    [" ", "w", " ", "w", " ", "w", " ", "w"],
+    ["w", " ", "w", " ", "B", " ", "o", " "],
+    [" ", "W", " ", "w", " ", "W", " ", "W"],
+    [" ", " ", " ", " ", " ", " ", " ", " "],
+    [" ", " ", " ", " ", " ", " ", " ", " "],
+    ["W", " ", "b", " ", "b", " ", "b", " "],
+    [" ", "b", " ", "b", " ", "b", " ", "b"],
+    ["b", " ", "b", " ", "b", " ", "B", " "],
+  ];
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <table className="no-border">
+      <thead>
+        <tr>
+          <th></th>
+          <th>a</th>
+          <th>b</th>
+          <th>c</th>
+          <th>d</th>
+          <th>e</th>
+          <th>f</th>
+          <th>g</th>
+          <th>h</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {data.map((row, index) => {
+          const number = data.length - index;
+          return <Row key={number.toString()} number={number} data={row} />;
+        })}
+      </tbody>
+      <tfoot>
+        <tr>
+          <th></th>
+          <th>a</th>
+          <th>b</th>
+          <th>c</th>
+          <th>d</th>
+          <th>e</th>
+          <th>f</th>
+          <th>g</th>
+          <th>h</th>
+          <th></th>
+        </tr>
+      </tfoot>
+    </table>
   );
 }
-
 export default App;
